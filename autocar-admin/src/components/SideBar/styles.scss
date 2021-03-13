@@ -1,0 +1,34 @@
+@import '../../assets/scss/index.scss';
+
+._sideBar {
+    width: 250px;
+    height: 100vh;
+    background-color: $blueNights;
+
+    ._logo {
+        text-align: center;
+    }
+    ._sideNavigation {
+        width: 100%;
+        ul {
+            width: 100%;
+            li {
+                width: 100%;
+                height: 30px;
+                margin: 20px auto;
+                display: flex;
+                justify-content: center;
+                a {
+                    font-family: $Lato;
+                    font-weight: 700;
+                    color: $lynxWhite;
+                    font-size: 20px;
+                    display: flex;
+                    align-items: center;
+                    width: 100%;
+                    height: 100%;
+                }
+            }
+        }
+    }
+}

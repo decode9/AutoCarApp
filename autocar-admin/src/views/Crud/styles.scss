@@ -1,0 +1,24 @@
+@import '../../assets/scss/index.scss';
+
+._bodyCrud {
+    width: calc(100% - 40px);
+    height: auto;
+    background-color: $blueberrySoda;
+    border-radius: 10px;
+    padding: 20px;
+    ._headerCrud {
+        font-family: $Lato;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        h2 {
+            color: $lynxWhite;
+        }
+        ._createButton {
+            @include success-button();
+            background-color: $mazarineBlue;
+            border-color: $mazarineBlue;
+            margin: 0 10px;
+        }
+    }
+}

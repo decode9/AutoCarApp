@@ -1,0 +1,82 @@
+@import '../../assets/scss/index.scss';
+@keyframes ToggleIn {
+    from {
+        opacity: 0;
+        display: none;
+    }
+    to {
+        opacity: 1;
+        display: block;
+    }
+}
+
+@keyframes ToggleOut {
+    from {
+        opacity: 1;
+        display: block;
+    }
+    to {
+        opacity: 0;
+        display: none;
+    }
+}
+
+header {
+    width: calc(100% - 40px);
+    height: 50px;
+    background-color: $blueNights;
+    display: flex;
+    padding: 10px 20px;
+    justify-content: flex-end;
+    font-family: $Roboto;
+    p {
+        margin: 0px;
+        font-size: 18px;
+        color: $lynxWhite;
+    }
+
+    ._headerUser {
+        padding: 0px 20px;
+        text-align: center;
+        cursor: pointer;
+        p {
+            margin: 15px;
+        }
+        ._caretIcon {
+            margin-left: 10px;
+        }
+        ._dropDownMenu {
+            background: $blueNights;
+            box-shadow: -2px 3px 3px 0px #000000;
+
+            ul {
+                padding: 10px;
+                text-align: center;
+                list-style: none;
+                li {
+                    cursor: pointer;
+                    transition: 0.5s all;
+                    color: $lynxWhite;
+                    &:hover {
+                        transition: 0.5s all;
+                        color: $blueberrySoda;
+                    }
+                }
+            }
+        }
+        ._noToggle {
+            display: none;
+            height: 0;
+            opacity: 0;
+            transition: 0.5s all;
+            animation: ToggleOut 0.5s;
+        }
+        ._toggle {
+            display: block;
+            height: auto;
+            opacity: 1;
+            transition: 0.5s all;
+            animation: ToggleIn 0.5s;
+        }
+    }
+}

@@ -1,0 +1,29 @@
+@mixin buttons($color, $backgroundHover, $borderHover, $letterHover) {
+    background: $color;
+    border: solid 1.5px $backgroundHover;
+    padding: 6px;
+    width: 120px;
+    font-weight: 700;
+    color: $lynxWhite;
+    font-family: $Lato;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.6s all;
+
+    &:hover {
+        background: $backgroundHover;
+        color: $lynxWhite;
+        transition: 0.6s all;
+    }
+    &:focus {
+        transition: 0.6s all;
+    }
+}
+
+@mixin success-button() {
+    @include buttons($nasturcianFlower, $nasturcianFlower, $nasturcianFlower, '');
+}
+
+@mixin cancel-button() {
+    @include buttons($blueberrySoda, $blueberrySoda, $blueberrySoda, $blueberrySoda);
+}

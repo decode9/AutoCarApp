@@ -1,0 +1,18 @@
+@import '../../assets/scss/index.scss';
+
+._bodyDashboard {
+    width: 100%;
+    height: 100vh;
+    background-color: $lynxWhite;
+    display: flex;
+}
+._contentDashboard {
+    width: calc(100% - 250px);
+    ._content {
+        width: calc(100% - 40px);
+        height: calc(100vh - 110px);
+        padding: 20px;
+        overflow: scroll;
+        overflow-x: hidden;
+    }
+}

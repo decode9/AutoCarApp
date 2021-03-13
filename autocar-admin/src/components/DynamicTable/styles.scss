@@ -1,0 +1,27 @@
+@import '../../assets/scss/index.scss';
+
+table{
+    width: 100%;
+    background-color: $lynxWhite;
+    border-radius: 5px;
+    padding: 10px;
+    border-collapse: collapse;
+    th{
+        border-bottom: 1px solid $blueNights;
+        padding: 10px 5px;
+    }
+    td{
+        text-align: center;
+        padding: 10px 5px;
+    }
+}
+
+._editButton{
+    @include cancel-button();
+    margin-bottom: 5px;
+    margin-right: 5px;
+}
+
+._deleteButton{
+    @include success-button();
+}

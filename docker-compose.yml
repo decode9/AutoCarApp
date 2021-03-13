@@ -1,0 +1,74 @@
+version: "3"
+
+services:
+  autocar-admin:
+    build: ./autocar-admin
+    container_name: autocar-admin
+    restart: unless-stopped
+    tty: true
+    volumes:
+      - ./autocar-admin:/autocar
+    ports:
+      - "3000:3000"
+    command: yarn dev
+    networks:
+      - app-network
+    
+  autocar-api:
+    build: ./autocar-api
+    container_name: autocar-api
+    restart: unless-stopped
+    tty: true
+    volumes:
+      - ./autocar-api:/var/www
+      - ./autocar-api/php/local.ini:/usr/local/etc/php/conf.d/local.ini
+    environment:
+      SERVICE_NAME: autocar-api
+      SERVICE_TAGS: dev
+    working_dir: /var/www
+    networks:
+      - app-network
+
+  autocar-api-webserver:
+    image: nginx:alpine
+    container_name: autocar-api-webserver
+    restart: unless-stopped
+    tty: true
+    ports:
+      - "8000:80"
+    volumes:
+      - ./autocar-api:/var/www
+      - ./autocar-api/nginx/conf.d/:/etc/nginx/conf.d
+    networks:
+      - app-network
+
+  autocar-db:
+    image: mariadb:10.5
+    container_name: autocar-db
+    restart: unless-stopped
+    tty: true
+    ports:
+      - "3307:3306"
+    volumes:
+      - autocar-data:/var/lib/mysql
+      - ./mysql/my.cnf:/etc/mysql/my.cnf
+    environment:
+      MYSQL_DATABASE: autocar
+      MYSQL_USER: autocar
+      MYSQL_PASSWORD: autocar
+      MYSQL_ROOT_PASSWORD: autocar-dev
+      SERVICE_NAME: mariadb
+      SERVICE_TAG: dev
+    networks:
+      - app-network
+
+networks:
+  app-network:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 200.2.2.1/24
+
+volumes:
+  autocar-data:
+    driver: local
