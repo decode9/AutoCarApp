@@ -6,3 +6,4 @@ export const logout = `${prefix}logout/`;
 export const client = `${prefix}client/`;
 export const region = `${prefix}region/`;
 export const concessionaire = `${prefix}concessionaire/`;
+export const table = 'table';

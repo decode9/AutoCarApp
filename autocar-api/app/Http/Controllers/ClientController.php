@@ -51,6 +51,18 @@ class ClientController extends ApiController
         }
     }
 
+    public function getTableClients(Request $request)
+    {
+        try {
+            $per_page = ($request['per_page']) ? $request['per_page'] : '10';
+            $clients = Client::With('concessionaire', 'concessionaire.region')->paginate($per_page);
+            return $this->responseApi($clients);
+        } catch (Exception $error) {
+            $code = $this->getErrorCode($error->getCode());
+            return $this->responseApi($error->getMessage(), $code);
+        }
+    }
+
     # Obtener un cliente por ID #
     public function getClient(Request $request)
     {

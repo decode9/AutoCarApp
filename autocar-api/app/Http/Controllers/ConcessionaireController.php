@@ -48,6 +48,18 @@ class ConcessionaireController extends ApiController
         }
     }
 
+    public function getTableConcessionaires(Request $request)
+    {
+        try {
+            $per_page = ($request['per_page']) ? $request['per_page'] : '10';
+            $concessionaires = Concessionaire::With('region')->paginate($per_page);
+            return $this->responseApi($concessionaires);
+        } catch (Exception $error) {
+            $code = $this->getErrorCode($error->getCode());
+            return $this->responseApi($error->getMessage(), $code);
+        }
+    }
+
     # Obtener un concessionairee por ID #
     public function getConcessionaire(Request $request)
     {
@@ -79,7 +91,7 @@ class ConcessionaireController extends ApiController
             $concessionaire->region()->associate($region);
 
             $concessionaire->save();
-            
+
             $concessionaire->refresh();
 
             unset($concessionaire['region_id']);

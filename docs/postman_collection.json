@@ -1,0 +1,676 @@
+{
+	"info": {
+		"_postman_id": "191a2682-edcb-4ed4-a7c0-fd4864074dd2",
+		"name": "AutoCar",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Authentication",
+			"item": [
+				{
+					"name": "Login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"prueba@prueba.com\",\n    \"password\": \"prueba123*\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8000/api/login",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Logout",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "AuthorizationToken",
+								"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJhdXRvY2FyLWp3dCIsInN1YiI6MSwiaWF0IjoxNjE1NTYzMTMxLCJleHAiOjE2MTU1OTkxMzF9.9K6mgR6suID6aM9H0oA46GmJl7dWDJEzkqDCEXn7qxU",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "localhost:8000/api/logout",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"logout"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Region",
+			"item": [
+				{
+					"name": "Create",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "AuthorizationToken",
+								"type": "text",
+								"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJhdXRvY2FyLWp3dCIsInN1YiI6MSwiaWF0IjoxNjE1NTYzNTQ0LCJleHAiOjE2MTU1OTk1NDR9.jVsc_chvdMFytMNuOIBRdEwxFn3rDE_mKU2ue_JMPk8"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Ica\",\n    \"code\": \"B1\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8000/api/region",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"region"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "AuthorizationToken",
+								"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJhdXRvY2FyLWp3dCIsInN1YiI6MSwiaWF0IjoxNjE1Njc1OTc1LCJleHAiOjE2MTU3MTE5NzV9.IVg7miiT7KD-FqU7l7k7vur-Qa8ymtboejz9bpXXhU4",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "localhost:8000/api/region",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"region"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Table",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "AuthorizationToken",
+								"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJhdXRvY2FyLWp3dCIsInN1YiI6MSwiaWF0IjoxNjE1Njc1OTc1LCJleHAiOjE2MTU3MTE5NzV9.IVg7miiT7KD-FqU7l7k7vur-Qa8ymtboejz9bpXXhU4",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "localhost:8000/api/table/region?per_page=10&page=1",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"table",
+								"region"
+							],
+							"query": [
+								{
+									"key": "per_page",
+									"value": "10"
+								},
+								{
+									"key": "page",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get One",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "AuthorizationToken",
+								"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJhdXRvY2FyLWp3dCIsInN1YiI6MSwiaWF0IjoxNjE1NTYzNTQ0LCJleHAiOjE2MTU1OTk1NDR9.jVsc_chvdMFytMNuOIBRdEwxFn3rDE_mKU2ue_JMPk8",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "localhost:8000/api/region/1",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"region",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "AuthorizationToken",
+								"type": "text",
+								"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJhdXRvY2FyLWp3dCIsInN1YiI6MSwiaWF0IjoxNjE1NTYzNTQ0LCJleHAiOjE2MTU1OTk1NDR9.jVsc_chvdMFytMNuOIBRdEwxFn3rDE_mKU2ue_JMPk8"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\": 4,\n    \"name\": \"Lima\",\n    \"code\": \"B2\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8000/api/region",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"region"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "AuthorizationToken",
+								"type": "text",
+								"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJhdXRvY2FyLWp3dCIsInN1YiI6MSwiaWF0IjoxNjE1NTYzNTQ0LCJleHAiOjE2MTU1OTk1NDR9.jVsc_chvdMFytMNuOIBRdEwxFn3rDE_mKU2ue_JMPk8"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\": 4\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8000/api/region",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"region"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Concessionaire",
+			"item": [
+				{
+					"name": "Create",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "AuthorizationToken",
+								"type": "text",
+								"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJhdXRvY2FyLWp3dCIsInN1YiI6MSwiaWF0IjoxNjE1NTYzNTQ0LCJleHAiOjE2MTU1OTk1NDR9.jVsc_chvdMFytMNuOIBRdEwxFn3rDE_mKU2ue_JMPk8"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Local Ica\",\n    \"direction\": \"Ica, Calle 14 con interseccion 4\",\n    \"code\": \"J6\",\n    \"region_id\": 2\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8000/api/concessionaire",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"concessionaire"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "AuthorizationToken",
+								"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJhdXRvY2FyLWp3dCIsInN1YiI6MSwiaWF0IjoxNjE1Njc1OTc1LCJleHAiOjE2MTU3MTE5NzV9.IVg7miiT7KD-FqU7l7k7vur-Qa8ymtboejz9bpXXhU4",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "localhost:8000/api/concessionaire",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"concessionaire"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get One",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "AuthorizationToken",
+								"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJhdXRvY2FyLWp3dCIsInN1YiI6MSwiaWF0IjoxNjE1NTYzNTQ0LCJleHAiOjE2MTU1OTk1NDR9.jVsc_chvdMFytMNuOIBRdEwxFn3rDE_mKU2ue_JMPk8",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "localhost:8000/api/concessionaire/1",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"concessionaire",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Table",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "AuthorizationToken",
+								"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJhdXRvY2FyLWp3dCIsInN1YiI6MSwiaWF0IjoxNjE1Njc1OTc1LCJleHAiOjE2MTU3MTE5NzV9.IVg7miiT7KD-FqU7l7k7vur-Qa8ymtboejz9bpXXhU4",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "localhost:8000/api/table/concessionaire?page=1&per_page=15",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"table",
+								"concessionaire"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1"
+								},
+								{
+									"key": "per_page",
+									"value": "15"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "AuthorizationToken",
+								"type": "text",
+								"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJhdXRvY2FyLWp3dCIsInN1YiI6MSwiaWF0IjoxNjE1NTYzNTQ0LCJleHAiOjE2MTU1OTk1NDR9.jVsc_chvdMFytMNuOIBRdEwxFn3rDE_mKU2ue_JMPk8"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\": 2,\n    \"name\": \"Local Ica\",\n    \"direction\": \"Ica, Calle 14 con interseccion 4\",\n    \"region_id\": 2\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8000/api/concessionaire",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"concessionaire"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "AuthorizationToken",
+								"type": "text",
+								"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJhdXRvY2FyLWp3dCIsInN1YiI6MSwiaWF0IjoxNjE1NTYzNTQ0LCJleHAiOjE2MTU1OTk1NDR9.jVsc_chvdMFytMNuOIBRdEwxFn3rDE_mKU2ue_JMPk8"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\": 2\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8000/api/concessionaire",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"concessionaire"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Clients",
+			"item": [
+				{
+					"name": "Create",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "AuthorizationToken",
+								"type": "text",
+								"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJhdXRvY2FyLWp3dCIsInN1YiI6MSwiaWF0IjoxNjE1NTY4Mzg1LCJleHAiOjE2MTU2MDQzODV9.zp-06Gar66MQSpaqaGyu4axvJG25u-0oM4MQKXuaTB0"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Pedro Augusto\",\n    \"id_number\": \"V-23232134\",\n    \"email\": \"pedro@gmail.com\",\n    \"phone_number\": \"+584242404484\",\n    \"concessionaire_id\": 2\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8000/api/client",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"client"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "AuthorizationToken",
+								"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJhdXRvY2FyLWp3dCIsInN1YiI6MSwiaWF0IjoxNjE1NTYzNTQ0LCJleHAiOjE2MTU1OTk1NDR9.jVsc_chvdMFytMNuOIBRdEwxFn3rDE_mKU2ue_JMPk8",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "localhost:8000/api/client",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"client"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Table",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "AuthorizationToken",
+								"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJhdXRvY2FyLWp3dCIsInN1YiI6MSwiaWF0IjoxNjE1Njc1OTc1LCJleHAiOjE2MTU3MTE5NzV9.IVg7miiT7KD-FqU7l7k7vur-Qa8ymtboejz9bpXXhU4",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "localhost:8000/api/table/client?page=1&per_page=10",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"table",
+								"client"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1"
+								},
+								{
+									"key": "per_page",
+									"value": "10"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get One",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "AuthorizationToken",
+								"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJhdXRvY2FyLWp3dCIsInN1YiI6MSwiaWF0IjoxNjE1NTYzNTQ0LCJleHAiOjE2MTU1OTk1NDR9.jVsc_chvdMFytMNuOIBRdEwxFn3rDE_mKU2ue_JMPk8",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "localhost:8000/api/client/1",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"client",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "AuthorizationToken",
+								"type": "text",
+								"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJhdXRvY2FyLWp3dCIsInN1YiI6MSwiaWF0IjoxNjE1NTYzNTQ0LCJleHAiOjE2MTU1OTk1NDR9.jVsc_chvdMFytMNuOIBRdEwxFn3rDE_mKU2ue_JMPk8"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\": 2,\n    \"name\": \"Pedro Augusto\",\n    \"phone_number\": \"+584242414484\",\n    \"concessionaire_id\": 1\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8000/api/client",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"client"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "AuthorizationToken",
+								"type": "text",
+								"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJhdXRvY2FyLWp3dCIsInN1YiI6MSwiaWF0IjoxNjE1NTYzNTQ0LCJleHAiOjE2MTU1OTk1NDR9.jVsc_chvdMFytMNuOIBRdEwxFn3rDE_mKU2ue_JMPk8"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\": 2\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8000/api/client",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"client"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Report",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "AuthorizationToken",
+								"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJhdXRvY2FyLWp3dCIsInN1YiI6MSwiaWF0IjoxNjE1NTYzNTQ0LCJleHAiOjE2MTU1OTk1NDR9.jVsc_chvdMFytMNuOIBRdEwxFn3rDE_mKU2ue_JMPk8",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "localhost:8000/api/report/client/",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"report",
+								"client",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

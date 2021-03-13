@@ -50,4 +50,10 @@ Route::middleware(['jwt.auth'])->group(function () {
     Route::prefix('/report')->name('report')->group(function () {
         Route::get('/client', [ClientController::class, 'generateReport'])->name('.client');
     });
+
+    Route::prefix('/table')->name('table')->group(function () {
+        Route::get('/region', [RegionController::class, 'getTableRegions'])->name('.region');
+        Route::get('/concessionaire', [ConcessionaireController::class, 'getTableConcessionaires'])->name('.concessionaire');
+        Route::get('/client', [ClientController::class, 'getTableClients'])->name('.client');
+    });
 });

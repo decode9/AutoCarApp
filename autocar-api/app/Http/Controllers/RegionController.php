@@ -31,6 +31,19 @@ class RegionController extends ApiController
         }
     }
 
+    # Obtener las Regiones Registradas en paginacion #
+    public function getTableRegions(Request $request)
+    {
+        try {
+            $per_page = ($request['per_page']) ? $request['per_page'] : '10';
+            $regions = Region::paginate($per_page);
+            return $this->responseApi($regions);
+        } catch (Exception $error) {
+            $code = $this->getErrorCode($error->getCode());
+            return $this->responseApi($error->getMessage(), $code);
+        }
+    }
+
     # Obtener Todas las Regiones Registrados #
     public function getAllRegions()
     {
@@ -66,7 +79,7 @@ class RegionController extends ApiController
             $region = Region::find($request->id);
             unset($request->id);
 
-            if(!$region) throw new Exception("doesnt_exist");
+            if (!$region) throw new Exception("doesnt_exist");
             $region->update($request->all());
 
             DB::commit();
@@ -86,9 +99,9 @@ class RegionController extends ApiController
             DB::beginTransaction();
 
             $region = Region::find($request->id);
-            
-            if(!$region) throw new Exception("doesnt_exist");
-            
+
+            if (!$region) throw new Exception("doesnt_exist");
+
             $region->delete();
 
             DB::commit();
