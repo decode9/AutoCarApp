@@ -10,7 +10,14 @@
       </div>
     </div>
     <div class="_bodyCrud">
-      <DynamicTable :keys="keys" :records="getter" />
+      <DynamicTable
+        :keys="keys"
+        :records="getter.data"
+        :per_page="getter.per_page"
+        :current_page="getter.current_page"
+        :last_page="getter.last_page"
+        :update="update"
+      />
     </div>
   </div>
 </template>

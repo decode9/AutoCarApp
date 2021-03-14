@@ -1,10 +1,11 @@
-import { fetchService, region } from "../../utils"
+import { fetchService, region, table } from "../../utils"
 
 
-const getTableRegionsAsync = async ({ commit, rootGetters }: any) => {
+const getTableRegionsAsync = async ({ commit, rootGetters }: any, payload: any) => {
 	try {
 		const auth = rootGetters.token;
-		const result = await fetchService(region, 'get', [], auth);
+		const { page, per_page } = payload
+		const result = await fetchService(`${table}region?page=${page}&per_page=${per_page}`, 'get', [], auth);
 		commit('setTableRegions', result['result'])
 	} catch (error) {
 		console.log(error);

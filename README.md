@@ -120,7 +120,6 @@ CERRAR SESION / POST http://localhost:8000/api/logout
 REGION
 OBTENER UNA REGION / GET http://localhost:8000/api/region/1
 OBTENER TODAS LAS REGIONES / GET http://localhost:8000/api/region
-OBTENER TABLA DE REGIONES / GET http://localhost:8000/api/region/table?per_page=10,page=1
 CREAR REGION / POST http://localhost:8000/api/region
 ACTUALIZAR REGION / PUT http://localhost:8000/api/region
 ELIMINAR REGION / DELETE http://localhost:8000/api/region
@@ -128,7 +127,6 @@ ELIMINAR REGION / DELETE http://localhost:8000/api/region
 CONCESIONARIO
 OBTENER UN CONCESIONARIO / GET http://localhost:8000/api/concessionaire/1
 OBTENER TODOS LOS CONCESIONARIOS / GET http://localhost:8000/api/concessionaire
-OBTENER TABLA DE CONCESIONARIOS / GET http://localhost:8000/api/concessionaire/table?per_page=10,page=1
 CREAR CONCESIONARIO / POST http://localhost:8000/api/concessionaire
 ACTUALIZAR CONCESIONARIO / PUT http://localhost:8000/api/concessionaire
 ELIMINAR CONCESIONARIO / DELETE http://localhost:8000/api/concessionaire
@@ -136,10 +134,17 @@ ELIMINAR CONCESIONARIO / DELETE http://localhost:8000/api/concessionaire
 CLIENTES
 OBTENER UN CLIENTE / GET http://localhost:8000/api/client/1
 OBTENER TODOS LOS CLIENTES / GET http://localhost:8000/api/client
-OBTENER TABLA DE CLIENTES / GET http://localhost:8000/api/client/table?per_page=10,page=1
 CREAR CLIENTE / POST http://localhost:8000/api/client
 ACTUALIZAR CLIENTE / PUT http://localhost:8000/api/client
 ELIMINAR CLIENTE / DELETE http://localhost:8000/api/client
+
+REPORTES
+REPORTE CLIENTE / DELETE http://localhost:8000/api/report/client
+
+TABLAS
+OBTENER TABLA DE CONCESIONARIOS / GET http://localhost:8000/api/table/concessionaire?per_page=10,page=1
+OBTENER TABLA DE CLIENTES / GET http://localhost:8000/api/table/client?per_page=10,page=1
+OBTENER TABLA DE REGIONES / GET http://localhost:8000/api/table/region?per_page=10,page=1
 ```
 
 NOTA: TODAS LAS RUTAS SON PROTEGIDAS EXEPTUANDO LA RUTA /api/login, PARA LAS RUTAS PROTEGIDAS SE DEBE AGREGAR UN HEADER AuthorizationToken CON EL TOKEN OBTENIDO DEL LOGIN

@@ -1,6 +1,9 @@
 export default {
 	'region': {
 		'regions': [],
-		'table': null
+		'table': {
+			'current_page': 1,
+			'per_page': 2
+		}
 	}
 }

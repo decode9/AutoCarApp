@@ -13,21 +13,21 @@ const crudData = (route: any = null) => {
   switch (route) {
     case 'region':
       data.title = 'Regiones'
-      data.update = 'getAllRegionsAsync';
+      data.update = 'getTableRegionsAsync';
       data.keys = ['id', 'name', 'code', 'created_at', 'updated_at']
-      data.getter = 'regions';
+      data.getter = 'tableRegions';
       break;
     case 'concesionario':
       data.title = 'Concesionarios'
-      data.update = 'getAllConcessionairesAsync';
+      data.update = 'getTableConcessionairesAsync';
       data.keys = ['id', 'name', 'direction', 'region', 'code', 'created_at', 'updated_at']
-      data.getter = 'concessionaires';
+      data.getter = 'tableConcessionaires';
       break;
     case 'cliente':
       data.title = 'Clientes'
-      data.update = 'getAllClientsAsync';
+      data.update = 'getTableClientsAsync';
       data.keys = ['id', 'name', 'id_number', 'email', 'phone_number', 'concessionaire', 'region', 'status', 'created_at', 'updated_at'];
-      data.getter = 'clients';
+      data.getter = 'tableClients';
       break;
     default:
       break;
@@ -46,20 +46,20 @@ export default defineComponent({
       const route = this.$route.path.replace('/', '')
       const store = this.$store;
       const data = crudData(route)
-      store.dispatch(data.update);
+      store.dispatch(data.update, { page: 1, per_page: 10 });
       this.title = data.title
       this.route = data.route
       this.update = data.update
       this.getter = store.getters[data.getter]
       this.keys = data.keys
 
-      watch(() => [store.getters.regions], ([getter]) => {
+      watch(() => [store.getters.tableRegions], ([getter]) => {
         if (this.route == 'region') this.getter = getter
       })
-      watch(() => [store.getters.clients], ([getter]) => {
+      watch(() => [store.getters.tableClients], ([getter]) => {
         if (this.route == 'client') this.getter = getter
       })
-      watch(() => [store.getters.concessionaires], ([getter]) => {
+      watch(() => [store.getters.tableConcessionaires], ([getter]) => {
         if (this.route == 'concessionaire') this.getter = getter
       })
 
@@ -68,7 +68,7 @@ export default defineComponent({
         if (route != this.route) {
           const store = this.$store;
           const data = crudData(route)
-          store.dispatch(data.update);
+          store.dispatch(data.update, { page: 1, per_page: 10 });
           this.title = data.title
           this.route = data.route
           this.getter = store.getters[data.getter]

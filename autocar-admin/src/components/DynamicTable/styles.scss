@@ -1,27 +1,77 @@
 @import '../../assets/scss/index.scss';
 
-table{
+._tableBody {
+    overflow-x: auto;
+    overflow-y: hidden;
+}
+table {
     width: 100%;
     background-color: $lynxWhite;
     border-radius: 5px;
     padding: 10px;
     border-collapse: collapse;
-    th{
+    font-family: $Roboto;
+    th {
         border-bottom: 1px solid $blueNights;
         padding: 10px 5px;
     }
-    td{
+    td {
         text-align: center;
         padding: 10px 5px;
     }
+    ._perPage {
+        text-align: left;
+        select{
+            width: 70px;
+            height: 40px;
+            background: $blueNights;
+            border: none;
+            border-radius: 10px;
+            padding: 10px;
+            color: $lynxWhite;
+            font-weight: 700;
+            font-family: $Lato;
+            margin-left: 5px;
+        }
+    }
+    ._pagination {
+        display: flex;
+        width: 100%;
+        justify-content: flex-end;
+        div {
+            border-radius: 5px;
+            padding: 5px;
+            margin: 0 5px;
+            background-color: $blueNights;
+            color: $lynxWhite;
+            width: 30px;
+            height: 30px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: $Lato;
+            cursor: pointer;
+            transition: all 0.5s;
+            &:hover {
+                color: $blueNights;
+                background-color: $blueberrySoda;
+                transition: all 0.5s;
+            }
+        }
+        ._selected {
+            color: $blueNights;
+            background-color: $blueberrySoda;
+            transition: all 0.5s;
+        }
+    }
 }
 
-._editButton{
+._editButton {
     @include cancel-button();
     margin-bottom: 5px;
     margin-right: 5px;
 }
 
-._deleteButton{
+._deleteButton {
     @include success-button();
 }

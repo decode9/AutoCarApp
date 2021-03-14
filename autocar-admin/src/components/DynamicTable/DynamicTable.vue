@@ -20,6 +20,32 @@
           </td>
         </tr>
       </tbody>
+      <tfoot>
+        <tr>
+          <td :colspan="Math.floor(keys.length / 2) + 1" class="_perPage">
+            <select v-model="perPage" name="per_page">
+              <option value="5">5</option>
+              <option value="10">10</option>
+              <option value="15">15</option>
+              <option value="25">25</option>
+              <option value="50">50</option>
+              <option value="100">100</option>
+            </select>
+          </td>
+          <td :colspan="Math.ceil(keys.length / 2)">
+            <div class="_pagination">
+              <div
+                v-for="key in pages"
+                v-bind:key="key"
+                v-bind:class="{ _selected: key == current_page }"
+                @click="reloadPages($event.target.textContent)"
+              >
+                <p>{{ key }}</p>
+              </div>
+            </div>
+          </td>
+        </tr>
+      </tfoot>
     </table>
   </div>
 </template>
