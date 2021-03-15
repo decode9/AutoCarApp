@@ -156,6 +156,17 @@ La ruta para el sitio frontend es el siguiente
 ```bash
 http::/localhost:3000
 ```
+
+# Documentacion
+
+En la carpeta docs se encontaran los siguientes documentos
+
+```bash
+Diagrama entidad relacion de la base de datos
+Coleccion de pruebas POSTMAN
+Documento de la prueba
+```
+
 # Faltantes 
 
 Falta por completar los siguientes elementos
